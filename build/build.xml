@@ -64,10 +64,12 @@
 						<var name="sf.username" value="$${env.${branch_clean}_USERNAME}"/>
 						<var name="sf.password" value="$${env.${branch_clean}_PASSWD}"/>
 						<var name="sf.client_id" value="${env.CLIENTID}"/>
+						<var name="sf.client_secret" value="${env.CLIENTSECRET}"/>
 						<echo>Using Username: ${sf.username}</echo>
 						<sf-login:usernamePasswordFlow  username="${sf.username}"
 														 password="${sf.password}"
 														 clientId="${sf.client_id}"
+														 clientSecret="${sf.client_secret}"
 														 loginUrl="${sf.loginurl}" />
 					</then>
 					<else>
