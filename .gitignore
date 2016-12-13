@@ -5,6 +5,7 @@
 ### Mavens Mate ###
 config/**
 debug/**
+resource-bundles/**
 
 ### Sass Cache ###
 dev/.sass-cache/**
@@ -20,6 +21,10 @@ IlluminatedCloud/**
 salesforce.schema
 Referenced Packages
 src/package.xml
+
+### VS Code ###
+force.json
+
 
 ### SfApexDocs ###
 # Generated SfDocs are persisted to the gh-pages branch of a repo
@@ -62,5 +67,9 @@ SfApexDocLog.txt
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.temp
 
 deploy/.config
+node_modules
+force.json
+build.properties.*

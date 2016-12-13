@@ -1,7 +1,18 @@
 machine:
-  java:
-    version: oraclejdk8
+  node:
+    version: v6.1.0
+
+dependencies:
+  override:
+    - npm install
+    - npm run package-xml
+
 test:
   override:
-    - ant -lib lib/ -buildfile build/build.xml Build: 
-        timeout: 600
+    - npm run deploy
+
+deployment:
+  production:
+    branch: /.*/
+    commands:
+      - npm run destroy

@@ -1,0 +1,24 @@
+{
+  "name": "SF_PACKAGE_NAME",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run package-xml && npm run validate && npm run deploy",
+    "deploy": "node build/deploy",
+    "destroy": "node build/destroy",
+    "retrieve": "node build/retrieveByName",
+    "package-xml": "./node_modules/.bin/package-xml -n \"SF_PACKAGE_NAME\" -v \"37.0\" -m -c"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "cs-jsforce": "^1.7.1",
+    "cs-jsforce-metadata-tools": "^1.2.7",
+    "fs-extra": "^0.30.0",
+    "git-rev": "^0.2.1",
+    "git-rev-sync": "^1.8.0",
+    "package-xml": "^1.0.7",
+    "sinon": "^1.17.5",
+    "sync-request": "^3.0.1",
+    "zip": "^1.2.0"
+  }
+}
