@@ -5,8 +5,7 @@ machine:
 dependencies:
   override:
     - npm install
-    - npm run package-xml
-    - npm run clean-metadata
+    - npm run package
 
 test:
   override:
