@@ -16,7 +16,7 @@
     "fs-extra": "^0.30.0",
     "git-rev": "^0.2.1",
     "git-rev-sync": "^1.8.0",
-    "package-xml": "^1.0.7",
+    "package-xml": "^2.1.5",
     "sinon": "^1.17.5",
     "sync-request": "^3.0.1",
     "zip": "^1.2.0"
