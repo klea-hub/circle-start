@@ -21,6 +21,7 @@ var authtools = require('./authTools.js');
 //     verbose                      Output execution detail log
 var options = {
     loginUrl: "https://login.salesforce.com",
+    packageName: ciconfig.packageName,
     checkOnly: ciconfig.checkOnly,
     testLevel: ciconfig.testLevel,
     ignoreWarnings: ciconfig.ignoreWarnings,
