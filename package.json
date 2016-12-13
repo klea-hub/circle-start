@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "package": "npm run package-xml && npm run clean-metadata",
     "build": "npm run package-xml && npm run clean-metadata && npm run deploy",
     "deploy": "node build/deploy",
     "destroy": "node build/destroy",
