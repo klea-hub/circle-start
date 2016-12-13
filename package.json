@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "package": "npm run package-xml && npm run clean-metadata",
-    "build": "npm run package-xml && npm run clean-metadata && npm run deploy",
+    "build": "npm run package && npm run deploy",
     "deploy": "node build/deploy",
     "destroy": "node build/destroy",
     "retrieve": "node build/retrieveByName",
