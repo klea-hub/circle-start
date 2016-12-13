@@ -6,6 +6,7 @@ dependencies:
   override:
     - npm install
     - npm run package-xml
+    - npm run clean-metadata
 
 test:
   override:
