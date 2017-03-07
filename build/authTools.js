@@ -7,9 +7,12 @@ var updateAuthOptions = function(ciconfig, options){
     if(process.env['CI']){
         var accessToken;
         if(ciconfig.refreshToken != '' && ciconfig.refreshToken != null && typeof ciconfig.refreshToken != 'undefined'){
+            console.log('Using Refresh Token');
+            console.log(ciconfig.refreshToken);
             jsonResponse = getAccessTokenFromRefreshToken(ciconfig.url, ciconfig.clientId, ciconfig.clientSecret, ciconfig.refreshToken);
         }
         else {
+            console.log('Using Username/Password Flow');
             jsonResponse = getAccessTokenFromUsernamePassword(ciconfig.url, ciconfig.clientId, ciconfig.clientSecret, ciconfig.username, ciconfig.password);
         }
         var conn = new jsforce.Connection({ 
@@ -29,6 +32,8 @@ var updateAuthOptions = function(ciconfig, options){
         options.username = ciconfig.username;
         options.password = ciconfig.password;
     }
+    console.log('URL:');
+    console.log(ciconfig.ciconfig.url);
     return options;
 };
 
@@ -43,13 +48,13 @@ var getAccessTokenFromUsernamePassword = function(url, clientId, clientSecret, u
 };
 
 var getSalesforceToken = function(url){
-    console.log('Getting Salesforce Access Token');
     var res = request('POST', url, {
         'headers': {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     });
     var responseJSON = JSON.parse(res.getBody('utf8'));
+    console.log('Retrieved Access Token:');
     console.log(responseJSON.access_token);
     return responseJSON;
 };
