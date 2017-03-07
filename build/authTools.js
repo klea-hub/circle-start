@@ -33,7 +33,7 @@ var updateAuthOptions = function(ciconfig, options){
         options.password = ciconfig.password;
     }
     console.log('URL:');
-    console.log(ciconfig.ciconfig.url);
+    console.log(ciconfig.url);
     return options;
 };
 
