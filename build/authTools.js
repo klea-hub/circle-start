@@ -10,22 +10,28 @@ var updateAuthOptions = function(ciconfig, options){
             console.log('Using Refresh Token');
             console.log(ciconfig.refreshToken);
             jsonResponse = getAccessTokenFromRefreshToken(ciconfig.url, ciconfig.clientId, ciconfig.clientSecret, ciconfig.refreshToken);
+            
+            var conn = new jsforce.Connection({ 
+                accessToken: jsonResponse.access_token,
+                instanceUrl: jsonResponse.instance_url,
+                loginUrl: ciconfig.url,
+                oauth2: {
+                    clientId: ciconfig.clientId,
+                    clientSecret: ciconfig.clientSecret,
+                    redirectUri: ciconfig.url
+                }
+            });
+            options.connection = conn;
+    
         }
         else {
             console.log('Using Username/Password Flow');
-            jsonResponse = getAccessTokenFromUsernamePassword(ciconfig.url, ciconfig.clientId, ciconfig.clientSecret, ciconfig.username, ciconfig.password);
+            options.loginUrl = ciconfig.url;
+            options.username = ciconfig.username;
+            options.password = ciconfig.password;
+            //jsonResponse = getAccessTokenFromUsernamePassword(ciconfig.url, ciconfig.clientId, ciconfig.clientSecret, ciconfig.username, ciconfig.password);
         }
-        var conn = new jsforce.Connection({ 
-            accessToken: jsonResponse.access_token,
-            instanceUrl: jsonResponse.instance_url,
-            loginUrl: ciconfig.url,
-            oauth2: {
-                clientId: ciconfig.clientId,
-                clientSecret: ciconfig.clientSecret,
-                redirectUri: ciconfig.url
-            }
-        });
-        options.connection = conn;
+        
     }
     else {
         options.loginUrl = ciconfig.url;
