@@ -1,4 +1,19 @@
 var git = require('git-rev-sync');
+
+// CONFIG OPTIONS:
+//     username [username]          Salesforce username
+//     password [password]          Salesforce password (and security token, if available)
+//     loginUrl [loginUrl]          Salesforce login url
+//     checkOnly                    Whether Apex classes and triggers are saved to the organization as part of the deployment
+//     dry-run                      Dry run. Same as --checkOnly
+//     testLevel [testLevel]        Specifies which tests are run as part of a deployment (NoTestRun/RunSpecifiedTests/RunLocalTests/RunAllTestsInOrg)
+//     runTests [runTests]          A list of Apex tests to run during deployment (commma separated)
+//     ignoreWarnings               Indicates whether a warning should allow a deployment to complete successfully (true) or not (false).
+//     rollbackOnError              Indicates whether any failure causes a complete rollback (true) or not (false)
+//     pollTimeout [pollTimeout]    Polling timeout in millisec (default is 60000ms)
+//     pollInterval [pollInterval]  Polling interval in millisec (default is 5000ms)
+//     verbose                      Output execution detail log
+
 var config = {
     url: 'https://login.salesforce.com',
     packageName: 'SF_PACKAGE_NAME',
